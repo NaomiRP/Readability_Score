@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -91,9 +90,9 @@ public class Main {
     }
 
     private static int countSyllables(String word) {
-        final List<Character> vowels = Arrays.asList('a','e','i','o','u','y');
+        final List<Character> vowels = List.of('a','e','i','o','u','y');
         int syls = 0;
-        String letters = word.replaceAll("[^\\w]", "").toLowerCase();
+        String letters = word.replaceAll("\\W", "").toLowerCase();
         int lettersLen = letters.length();
         for (int i = 0; i < lettersLen; i++) {
             if (vowels.contains(letters.charAt(i))) {
